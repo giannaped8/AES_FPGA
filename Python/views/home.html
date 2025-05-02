@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AES Encryption Website">
+  <link rel="stylesheet" type="text/css" href="/static/style1.css?v={{time}}">
+  <title>AES Encryption Explorer</title>
+</head>
+
+<body class="home">
+  <header>
+    <nav>
+      <ul>
+        <li><a id="nav_history">History</a></li>
+        <li><a id="nav_demo">Demo</a></li>
+        <li><a id="nav_learn">Learn</a></li>
+        <li><a id="nav_about">About</a></li>
+        <li><a class="active" id="nav_home">Home</a></li>
+        <li><a style="float:left" id="navTitle">AES Encryption Explorer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="top_home">
+      <div id="title_home">
+        <h1>AES Encryption Explorer</h1>
+        <p>Welcome to <strong>AES Encryption Explorer</strong>, an interactive educational website designed to deepen your understanding of Advanced Encryption Standard (AES)
+          —the gold standard for secure data encryption. Whether you're a student, researcher, or cybersecurity enthusiast, our platform provides an engaging way to explore AES 
+          through live demonstrations and performance-optimized hardware acceleration.  </p>
+      </div>
+
+      <div id="image_home">
+        <img src="/static/images/aes_home.jpeg" alt="Cyber Security" title="aes_home">
+      </div>
+    </div>
+
+
+<!-- 
+  <div class="mid_home">  </div> 
+-->
+
+  </main>
+
+  <script>
+    document.getElementById('nav_history').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/history';  // Navigate to the history page
+    });
+
+    document.getElementById('nav_demo').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/demo';  // Navigate to the history page
+    });
+
+    document.getElementById('nav_learn').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/learn';  // Navigate to the learn page
+    });
+
+    document.getElementById('nav_about').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/about';  // Navigate to the About page
+    });
+
+    document.getElementById('nav_home').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/';  // Navigate to the home page
+    });
+
+  </script>
+</body>
+
+</html>

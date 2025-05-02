@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AES Encryption Website">
+  <link rel="stylesheet" type="text/css" href="/static/style1.css?v={{time}}">
+  <title>AES Encryption Explorer</title>
+</head>
+
+<body id="body_history">
+  <header>
+    <nav>
+      <ul>
+        <li><a class="active" id="nav_history">History</a></li>
+        <li><a id="nav_demo">Demo</a></li>
+        <li><a id="nav_learn">Learn</a></li>
+        <li><a id="nav_about">About</a></li>
+        <li><a id="nav_home">Home</a></li>
+        <li><a style="float:left" id="navTitle">AES Encryption Explorer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <div id="history_main">
+      <div id="text_history">
+
+  
+      <h1>The History of AES Encryption</h1>
+      <p>
+        The development of AES begins with its predecessor, the Data Encryption Standard (DES), which was adopted by the
+        U.S. National Institute of Standards and Technology (NIST) in 1977. DES was a symmetric-key algorithm that
+        became
+        widely used in both commercial and government applications. However, DES’s 56-bit key length soon became
+        insufficient against the growing power of brute-force attacks. In the 1990s, with advances in computing
+        capabilities, DES could be broken in just a few hours, prompting a global call for a more secure replacement
+        <a href="#source3_history">[3]</a>.
+      </p>
+      <p>
+        In 1997, NIST launched a public competition to identify a new encryption algorithm that could provide strong
+        security, operate efficiently in both hardware and software, and be royalty-free for global adoption. After an
+        extensive multi-year evaluation of fifteen candidate algorithms from around the world, NIST selected the
+        Rijndael
+        algorithm—developed by Belgian cryptographers Vincent Rijmen and Joan Daemen—as the new encryption standard <a
+          href="#source2_history">[2]</a>.
+      </p>
+      <p>
+        In 2001, NIST formally announced AES as the new U.S. encryption standard, officially designated as FIPS PUB 197.
+        AES is a symmetric block cipher that encrypts data in 128-bit blocks using cryptographic keys of 128, 192, or
+        256
+        bits. The design of AES includes a series of mathematical transformations—such as SubBytes, ShiftRows,
+        MixColumns,
+        and AddRoundKey—that are performed in multiple rounds depending on the key length. These operations provide the
+        necessary confusion and diffusion properties to resist various forms of cryptanalysis, including linear and
+        differential attacks <a href="#source5_history">[5]</a>.
+      </p>
+      <p>
+        AES was selected not only for its cryptographic strength but also for its flexibility and performance. Its
+        design
+        is highly optimized for both software implementation on general-purpose CPUs and hardware acceleration using
+        field-programmable gate arrays (FPGAs) or application-specific integrated circuits (ASICs). This versatility has
+        made AES a favorite among developers, manufacturers, and security professionals.
+      </p>
+
+      <p>
+        Since its standardization, AES has become the most widely adopted encryption algorithm in the world. It is used
+        in
+        secure web communications (SSL/TLS), wireless networks (WPA2/WPA3), virtual private networks (VPNs), secure
+        messaging applications, and encrypted storage devices. The U.S. government mandates AES for protecting
+        classified
+        information, with AES-256 approved for Top Secret-level encryption <a href="#source4_history">[4]</a>.
+      </p>
+
+      <p>
+        AES’s role extends beyond traditional cybersecurity. As part of modern embedded systems and Internet-of-Things
+        (IoT) devices, AES enables real-time encryption in hardware-constrained environments. Moreover, with the
+        emergence
+        of hardware-based security models, AES has become a key target for hardware acceleration techniques that improve
+        both speed and power efficiency—critical for applications in finance, healthcare, and national infrastructure.
+      </p>
+      <p>
+        AES remains one of the most secure and trusted encryption algorithms available today. As of 2025, there are no
+        practical cryptanalytic attacks capable of breaking AES when properly implemented. Nevertheless, the
+        cryptographic
+        community remains vigilant, especially as quantum computing looms on the horizon. While AES is believed to be
+        more
+        resistant to quantum attacks than asymmetric algorithms, researchers continue to explore post-quantum encryption
+        alternatives. Still, AES is expected to remain foundational to digital security in the foreseeable future <a
+          href="#source1_history">[1]</a>.
+      </p>
+      <p>
+        The Advanced Encryption Standard represents a triumph of international collaboration, public transparency, and
+        cryptographic rigor. From its inception as a successor to DES to its current role securing billions of
+        transactions every day, AES has set a high bar for secure, efficient, and adaptable encryption. Its continued
+        use
+        and integration into emerging technologies affirm its lasting importance in the evolving world of cybersecurity.
+      </p>
+    </div>
+    </div>
+  </main>
+  <footer id="footer_history">
+    <ol>
+      <li><a id="source1_history"> Chen, L., Jordan, S., Liu, Y.-K., Moody, D., Peralta, R., Perlner, R., & Smith-Tone,
+          D. (2016). Report on
+          Post-Quantum Cryptography. U.S. Department of Commerce, NIST.
+          https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8105.pdf</a></li>
+      <br>
+      <li><a id="source2_history">Daemen, J., & Rijmen, V. (2002). The Design of Rijndael: AES - The Advanced Encryption
+          Standard. Springer.
+          https://cs.ru.nl/~joan/papers/JDA_VRI_Rijndael_2002.pdf</a></li>
+      <br>
+      <li><a id="source3_history">National Institute of Standards and Technology (NIST). (2001). Announcing the Advanced
+          Encryption Standard (AES).
+          FIPS PUB 197. https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf</a>
+      </li>
+      <br>
+      <li><a id="source4_history"> National Security Agency (NSA). (2015). Suite B Cryptography.
+          https://apps.nsa.gov/iaarchive/library/ia-guidance/ia-solutions-for-classified/suite-b-cryptography.cfm</a>
+      </li>
+      <br>
+      <li><a id="source5_history"> Stallings, W. (2017). Cryptography and Network Security: Principles and Practice (7th
+          ed.). Pearson.
+          https://dl.hiva-network.com/Library/security/Cryptography-and-network-security-principles-and-practice.pdf</a>
+      </li>
+
+    </ol>
+  </footer>
+  <script>
+    document.getElementById('nav_history').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/history';  // Navigate to the history page
+    });
+
+    document.getElementById('nav_demo').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/demo';  // Navigate to the history page
+    });
+
+    document.getElementById('nav_learn').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/learn';  // Navigate to the learn page
+    });
+
+    document.getElementById('nav_about').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/about';  // Navigate to the About page
+    });
+
+    document.getElementById('nav_home').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/';  // Navigate to the home page
+    });
+
+  </script>
+</body>
+
+</html>

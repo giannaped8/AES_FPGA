@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AES Encryption Website">
+    <link rel="stylesheet" type="text/css" href="/static/style1.css?v={{time}}">
+    <title>AES Encryption Explorer</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a id="nav_history">History</a></li>
+                <li><a class="active" id="nav_demo">Demo</a></li>
+                <li><a id="nav_learn">Learn</a></li>
+                <li><a id="nav_about">About</a></li>
+                <li><a id="nav_home">Home</a></li>
+                <li><a style="float:left" id="navTitle">AES Encryption Explorer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="demo_main">
+            <div class="demo_title">
+                <h1>AES-128 Encryption Demonstration</h1>
+                <h2>Enter a 16-byte string below to see how AES-128 encryption works in action.</h2>
+                <p> For this demonstration, we use the fixed 16-byte key: "Thisisakey123456". The full encryption
+                    process, outlined step-by-step on our Learn page, is performed by offloading the computation to a
+                    PYNQ Z2 FPGA board.When you click Encrypt, your input is securely transmitted to the PYNQ board,
+                    which returns the encrypted ciphertext in real time. Click Decrypt to reverse the process in Python
+                    and view the original message.
+                </p>
+            </div>
+
+            <form id="encryptForm" action="/encrypt" method="post">
+                <label for="input">Input:</label>
+                <input type="text" id="input" name="input" required>
+                <button type="submit">Encrypt</button>
+            </form>
+            <br>
+            <br>
+
+            <div class="output">
+                <h2 id="submissionsTitle" style="display: none;">Previous Submissions</h2>
+
+                <table id="outputTable">
+                    <tr>
+                        <th>ID</th>
+                        <th>Input</th>
+                        <th>Encryption</th>
+                        <th>Software Encryption Time (ms)</th>
+                        <th>Hardware Encryption Time (ms)</th>
+                        <th>Decryption</th>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Fetch the encrypted strings dynamically from the server
+        async function fetchStrings() {
+            try {
+                let response = await fetch('/get_strings');  // Fetch JSON data from a new Bottle route
+                let data = await response.json();
+
+                let title = document.getElementById("submissionsTitle");
+                let table = document.getElementById("outputTable");
+
+                // Clear previous list
+                // table.innerHTML = "";
+
+                if (Object.keys(data).length > 0) {
+                    title.style.display = "block";  // Show title
+                    Object.values(data).forEach(entry => {
+
+                        //Create Table Entries
+                        let tr = document.createElement("tr");
+                        let td_ID = document.createElement("td");
+                        let td_Input = document.createElement("td");
+                        let td_Encrypt = document.createElement("td");
+                        let td_Decrypt = document.createElement("td");
+                        let td_S_time = document.createElement("td");
+                        let td_H_time = document.createElement("td");
+                        
+
+
+                        // Create "Decrypt" button
+                        let decryptButton = document.createElement("button");
+                        decryptButton.textContent = "Decrypt";
+                        decryptButton.onclick = async function () {
+                            await decryptEntry(entry.id, tr, decryptButton);
+                        };
+
+
+                        //Set element text
+                        td_ID.innerHTML = `${entry.id}`;
+                        td_Input.innerHTML = `${entry.value}`;
+                        td_Encrypt.innerHTML = `${entry.encrypt}`;
+                        td_S_time.innerHTML = `${entry.software_time}`;
+                        td_H_time.innerHTML = `${entry.hardware_time}`;
+                        td_Decrypt = decryptButton;
+
+                        tr.appendChild(td_ID);
+                        tr.appendChild(td_Input);
+                        tr.appendChild(td_Encrypt);
+                        tr.appendChild(td_S_time);
+                        tr.appendChild(td_H_time);
+                        tr.appendChild(td_Decrypt);
+
+                        table.appendChild(tr);
+                    });
+                } else {
+                    title.style.display = "none";  // Hide title if no entries
+                }
+            } catch (error) {
+                console.error("Error fetching encrypted strings:", error);
+            }
+        }
+
+        // Send request to decrypt an entry
+        async function decryptEntry(entryId, tableRow, button) {
+            try {
+                let response = await fetch(`/decrypt/${entryId}`, { method: 'POST' });
+                let data = await response.json();
+
+                if (data.decrypted) {
+                    let decryptedText = document.createElement("td");
+                    decryptedText.innerHTML = `${data.decrypted}`;
+                    tableRow.appendChild(decryptedText);
+
+                    // Hide the button after decryption
+                    button.style.display = "none";
+                }
+            } catch (error) {
+                console.error("Error decrypting entry:", error);
+            }
+        }
+
+
+        document.getElementById("encryptForm").addEventListener("submit", function (event) {
+            setTimeout(fetchStrings, 1000);  // Fetch data shortly after submitting
+        });
+
+        // Initial load
+        fetchStrings();
+
+
+        //NAV BAR FUNCTIONS
+        document.getElementById('nav_history').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent default anchor behavior
+            window.location.href = '/history';  // Navigate to the history page
+        });
+
+        document.getElementById('nav_demo').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent default anchor behavior
+            window.location.href = '/demo';  // Navigate to the history page
+        });
+
+        document.getElementById('nav_learn').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent default anchor behavior
+            window.location.href = '/learn';  // Navigate to the learn page
+        });
+
+        document.getElementById('nav_about').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent default anchor behavior
+            window.location.href = '/about';  // Navigate to the About page
+        });
+
+        document.getElementById('nav_home').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent default anchor behavior
+            window.location.href = '/';  // Navigate to the home page
+        });
+
+
+    </script>
+</body>
+
+</html>

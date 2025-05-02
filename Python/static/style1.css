@@ -1,0 +1,475 @@
+/* On all pages */
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h1,
+h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Placement of main sections*/
+body {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  gap: 2rem;
+  align-items: flex-start;
+
+  background-color: black;
+}
+
+header {
+  order: 1;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
+
+main {
+  order: 2;
+  width: 100%;
+  height: fit-content;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+/* Navigation Bar */
+nav {
+  height: fit-content;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+nav li :not(#navTitle) {
+  float: right;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  margin-top: 5px;
+  text-decoration: none;
+  font-size: medium;
+}
+
+.active {
+  background-color: black;
+}
+
+nav li a:hover {
+  color: black;
+  font-weight: bold;
+  transition-duration: 0.4s;
+}
+
+#navTitle:hover,
+.active:hover {
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#navTitle {
+  font-size: larger;
+}
+
+
+
+
+
+
+
+
+
+/* HOME PAGE */
+.home {
+  background-color: black;
+}
+
+.top_home {
+  display: flex;
+  flex-direction: row;
+
+  margin: 0 auto;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.top_home #title_home {
+  order: 1;
+  width: 30%;
+  height: fit-content;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  padding: 10pt;
+
+
+  background-color: white;
+  color: black;
+}
+
+.top_home #image_home {
+  order: 2;
+  width: 70%;
+  height: min-content;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  padding: 10pt;
+
+  background-color: white;
+}
+
+.top_home #title_home h1 {
+  text-align: center;
+}
+
+.top_home #title_home h2 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.top_home #title_home p {
+  text-align: left;
+}
+
+.top_home #title_home ul {
+  text-align: left;
+}
+
+.top_home #title_home ul li {
+  text-decoration: none;
+}
+
+.mid_home {
+  height: fit-content;
+
+  margin: 2rem;
+  padding: 10pt;
+
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+
+
+
+/* ABOUT PAGE */
+#about_holder {
+  margin: 2rem 8%;
+  padding: 10pt;
+  background-color: white;
+  color: black;
+  height: max-content;
+}
+
+#about_clear {
+  clear: both;
+}
+
+#aes_about {
+  /*image*/
+  float: right;
+  margin: 0 0 0 15px;
+  width: 40%;
+  height: auto;
+}
+
+.headshots-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.headshots-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10rem;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.person img {
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.person img:hover {
+  transform: scale(1.05);
+}
+
+.person p {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+
+
+
+
+
+
+/* LEARN PAGE */
+#learn_main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 2rem;
+  padding-left: 0;
+  gap: 2rem;
+  padding-bottom: 18rem;
+  /* adjust for footer */
+}
+
+#learnImgs {
+  display: grid;
+  place-items: center;
+}
+
+#learnImgs img {
+  max-width: 720px;
+}
+
+
+.sidebar {
+  position: sticky;
+  /* Keeps it fixed while scrolling */
+  top: 60px;
+  /* Below the navbar */
+  width: fit-content;
+  height: fit-content;
+  flex-shrink: 0;
+  border-radius: 0 10px 10px 0;
+  background-color: #333;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#text_learn {
+  flex-grow: 2;
+  padding: 2rem;
+  background-color: white;
+  color: black;
+  max-width: 900pt;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover {
+  background-color: #555;
+  color: black;
+  font-weight: bold;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Settings for Footer placement */
+#body_learn {
+  position: relative;
+  min-height: 100vh;
+}
+
+#footer_learn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #333;
+  color: white;
+
+  font-style: italic;
+  font-weight: normal;
+  padding: 0;
+}
+
+#footer_learn ul li {
+  padding: 1pt;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+
+
+@media (max-width: 768px) {
+  #learn_main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  #text_learn {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+
+/* DEMO PAGE */
+#demo_main {
+  margin: 2rem 8%;
+  padding: 10pt;
+  background-color: white;
+  color: black;
+  height: max-content;
+}
+
+form {
+  margin: 20px auto;
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  text-align: center;
+}
+
+
+/* Table for Output Entries in Demo Page */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+button {
+  transition-duration: 0.4s;
+  background-color: #333;
+  /* Green */
+  color: white;
+  border-radius: 5px;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+  border-color: #333;
+}
+
+
+
+
+
+
+
+/* HISTORY PAGE */
+#history_main {
+  padding-bottom: 15rem;
+}
+
+#text_history {
+  margin: 2rem 10%;
+  padding: 10pt;
+  background-color: white;
+  color: black;
+  height: max-content;
+
+}
+
+/* Settings for Footer placement */
+#body_history {
+  position: relative;
+  min-height: 100vh;
+}
+
+#footer_history {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #333;
+  color: white;
+
+  font-style: italic;
+  font-weight: normal;
+  padding: 0;
+}
+
+#footer_history ul li {
+  padding: 1pt;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+/* TIMING PAGE */
+#timing_main {
+  margin: 2rem 10%;
+  padding: 10pt;
+  background-color: white;
+  color: black;
+  height: max-content;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AES Encryption Website">
+  <link rel="stylesheet" type="text/css" href="/static/style1.css?v={{time}}">
+  <title>AES Encryption Explorer</title>
+</head>
+
+<body class="about">
+  <header>
+    <nav>
+      <ul>
+        <li><a id="nav_history">History</a></li>
+        <li><a id="nav_demo">Demo</a></li>
+        <li><a id="nav_learn">Learn</a></li>
+        <li><a class="active" id="nav_about">About</a></li>
+        <li><a id="nav_home">Home</a></li>
+        <li><a style="float:left" id="navTitle">AES Encryption Explorer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="about_holder">
+      <div id="about_main">
+        <h1>About Us</h1>
+        <img src="/static/images/aes_about.jpeg" alt="WashU" title="aes_about" id="aes_about">
+        <p>
+          This project was developed by Gianna Pedicini and Isabella Lombardo, senior undergraduate students pursuing
+          Bachelor of Science degrees in Computer Engineering at Washington University in St. Louis, Class of 2025.
+          Completed under the advisory of Dr. Michael Hall, this work represents the final deliverable for our senior
+          capstone project in the McKelvey School of Engineering.
+        </p>
+
+        <p>
+          As part of our capstone requirement, we were tasked with applying hardware acceleration to an algorithm of our
+          choosing. Drawing on our interests in cybersecurity, embedded systems, and educational accessibility, we chose
+          the Advanced Encryption Standard (AES)—a widely used encryption algorithm critical to modern digital security.
+        </p>
+
+        <p>
+          The result is this interactive, educational website designed to demystify AES encryption for a broad audience.
+          The platform allows users to input plaintext, initiate AES encryption, and observe the transformation in real
+          time. To simulate practical performance improvements, the encryption process is offloaded to a PYNQ Z2 FPGA
+          development board, demonstrating the role of hardware acceleration in cryptographic systems.
+        </p>
+        <p>
+          The website is the culmination of a semester-long effort and follows a structured development path:
+        <ul>
+          <li>
+            Milestone 1 involved establishing communication between the front-end and the FPGA via a REST API and
+            verifying data transfer between the microprocessor and hardware.
+          </li>
+          <li>
+            Milestone 2 focused on implementing key AES modules on the FPGA, supported by a software-based model for
+            verification.
+          </li>
+          <li>
+            The final deliverable, presented here, integrates these components into a complete AES encryption pipeline,
+            paired with intuitive, interactive visualizations for educational use.
+          </li>
+        </ul>
+        </p>
+
+        <p>
+          By bridging the gap between theoretical cryptography and hardware-level implementation, our website serves as
+          a tool for learners to gain a deeper, hands-on understanding of secure data systems and the growing importance
+          of hardware acceleration in the field.
+        </p>
+
+
+        <p>
+          <strong>Gianna Pedicini</strong>
+          <br>
+          <strong>Isabella Lombardo</strong>
+          <br>
+          <i>B.S. in Computer Engineering, Class of 2025</i>
+          <br>
+          <i>McKelvey School of Engineering</i>
+          <br>
+          <i>Washington University in St. Louis</i>
+        </p>
+      </div>
+      <div id="about_clear"></div>
+      <br>
+      <hr>
+      <h1>Meet the Team</h1>
+      <section class="headshots-section">
+        <div class="headshots-container">
+          <div class="person">
+            <img src="/static/images/gianna.jpeg" alt="Gianna Pedicini">
+            <p>Gianna Pedicini</p>
+          </div>
+          <div class="person">
+            <img src="/static/images/isabella.jpeg" alt="Isabella Lombardo">
+            <p>Isabella Lombardo</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('nav_history').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/history';  // Navigate to the history page
+    });
+
+    document.getElementById('nav_demo').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/demo';  // Navigate to the history page
+    });
+
+    document.getElementById('nav_learn').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/learn';  // Navigate to the learn page
+    });
+
+    document.getElementById('nav_about').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/about';  // Navigate to the About page
+    });
+
+    document.getElementById('nav_home').addEventListener('click', function (event) {
+      event.preventDefault();  // Prevent default anchor behavior
+      window.location.href = '/';  // Navigate to the home page
+    });
+
+  </script>
+</body>
+
+</html>
